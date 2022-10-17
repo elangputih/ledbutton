@@ -1,0 +1,30 @@
+int button= 2;
+int nilaitombol;
+int count;
+int led1= 13;
+
+
+void setup(){
+Serial.begin(9600);
+pinMode(button, INPUT);
+pinMode(led1, OUTPUT);
+
+}
+
+void loop(){
+nilaitombol= digitalRead(button);
+
+if(nilaitombol == 1){
+count++;
+delay(300);
+if(count==1){
+  //tekanan pertama
+digitalWrite(led1, HIGH);
+}
+if(count==2){
+  //penekanan ke dua
+digitalWrite(led1, LOW);
+count=0;
+}
+}
+}
